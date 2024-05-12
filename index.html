@@ -25,17 +25,18 @@
             margin-top: 10px;
             gap: 20px;
         }
-        @media only screen and (max-width: 767px) {
-            /* Adjust canvas size for mobile */
+        @media only screen and (max-width: 576px) {
+            /* Adjust font size for smaller screens */
+            .top p {
+                font-size: 12px;
+            }
             #myCanvas {
-                width: 100%;
+                max-width: 90%; /* Ensure canvas doesn't overflow horizontally */
                 height: auto;
             }
-
-            /* Adjust button styles for better mobile usability */
-            button {
-                display: block;
-                margin: 5px auto;
+            /* Adjust gap between elements for smaller screens */
+            .top, .bottom {
+                gap: 5px;
             }
         }
     </style>
