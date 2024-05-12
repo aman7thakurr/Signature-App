@@ -75,25 +75,38 @@
                 ctx.fillStyle = e.target.value;
         })
 
-        canvas.addEventListener('mousedown',(e)=>{
-            x = e.offsetX;
-            y = e.offsetY;
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('touchstart', startDrawing);
+
+        function startDrawing(e) {
+            x = e.offsetX || e.touches[0].clientX;
+            y = e.offsetY || e.touches[0].clientY;
             isDrawing = true;
-     
-        })
-        canvas.addEventListener('mousemove',(e)=>{
+        }
+
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('touchmove', draw);
+
+        function draw(e) {
+            e.preventDefault();
             if(isDrawing === true){
+                let offsetX = e.offsetX || e.touches[0].clientX;
+                let offsetY = e.offsetY || e.touches[0].clientY;
                 ctx.beginPath();
                 ctx.moveTo(x,y);
-                ctx.lineTo(e.offsetX,e.offsetY);
+                ctx.lineTo(offsetX,offsetY);
                 ctx.stroke();
-                x = e.offsetX;
-                y = e.offsetY;
+                x = offsetX;
+                y = offsetY;
             }
-        })
-        canvas.addEventListener('mouseup',()=>{
+        }
+
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('touchend', stopDrawing);
+
+        function stopDrawing(){
             isDrawing = false;
-        })
+        }
 
         canvaColor.addEventListener('change',(e)=>{
             ctx.fillStyle = e.target.value;
@@ -102,7 +115,6 @@
         
         fontSize.addEventListener('change',(e)=>{
             ctx.lineWidth = e.target.value;
-
         })
 
         clearBtn.addEventListener("click",(e)=>{
@@ -110,7 +122,6 @@
         })
 
         saveBtn.addEventListener('click',(e)=>{
-
                 localStorage.setItem('canvasContent',canvas.toDataURL());
                 let link =document.createElement('a');
                 link.download = 'myCanvas.png';
@@ -125,7 +136,6 @@
             img.onload = ()=>{
                 ctx.drawImage(img,0,0);
             }
-            
         })
 
     </script>
