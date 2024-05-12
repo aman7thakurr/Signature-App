@@ -25,18 +25,73 @@
             margin-top: 10px;
             gap: 20px;
         }
-        @media only screen and (max-width: 576px) {
-            /* Adjust font size for smaller screens */
-            .top p {
-                font-size: 12px;
-            }
+        @media only screen and (max-width: 320px) {
+            /* Adjust canvas size for smartphones (e.g., iPhone 4) */
             #myCanvas {
-                max-width: 90%; /* Ensure canvas doesn't overflow horizontally */
+                width: 90%;
                 height: auto;
             }
-            /* Adjust gap between elements for smaller screens */
-            .top, .bottom {
-                gap: 5px;
+
+            /* Adjust button styles for better mobile usability */
+            button {
+                display: block;
+                margin: 5px auto;
+            }
+        }
+
+        @media only screen and (min-width: 321px) and (max-width: 375px) {
+            /* Adjust canvas size for smartphones (e.g., iPhone 5, 6, 7, 8, SE) */
+            #myCanvas {
+                width: 90%;
+                height: auto;
+            }
+
+            /* Adjust button styles for better mobile usability */
+            button {
+                display: block;
+                margin: 5px auto;
+            }
+        }
+
+        @media only screen and (min-width: 376px) and (max-width: 414px) {
+            /* Adjust canvas size for smartphones (e.g., iPhone 6 Plus, 7 Plus, 8 Plus, X, XS, 11 Pro) */
+            #myCanvas {
+                width: 90%;
+                height: auto;
+            }
+
+            /* Adjust button styles for better mobile usability */
+            button {
+                display: block;
+                margin: 5px auto;
+            }
+        }
+
+        @media only screen and (min-width: 415px) and (max-width: 480px) {
+            /* Adjust canvas size for smartphones (e.g., Pixel 4, Galaxy S10) */
+            #myCanvas {
+                width: 90%;
+                height: auto;
+            }
+
+            /* Adjust button styles for better mobile usability */
+            button {
+                display: block;
+                margin: 5px auto;
+            }
+        }
+
+        @media only screen and (min-width: 481px) and (max-width: 767px) {
+            /* Adjust canvas size for smartphones (e.g., larger smartphones, small tablets) */
+            #myCanvas {
+                width: 90%;
+                height: auto;
+            }
+
+            /* Adjust button styles for better mobile usability */
+            button {
+                display: block;
+                margin: 5px auto;
             }
         }
     </style>
